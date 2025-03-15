@@ -34,6 +34,7 @@ Name | Type | Description | Notes
 **comment_url** | Option<**String**> |  | [optional]
 **download_url** | Option<**String**> |  | [optional]
 **info_url** | Option<**String**> |  | [optional]
+**movie_requested** | Option<**bool**> |  | [optional]
 **download_allowed** | Option<**bool**> |  | [optional]
 **release_weight** | Option<**i32**> |  | [optional]
 **edition** | Option<**String**> |  | [optional]

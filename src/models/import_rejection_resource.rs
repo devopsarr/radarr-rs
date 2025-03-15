@@ -12,17 +12,17 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ProviderMessage {
-    #[serde(rename = "message", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub message: Option<Option<String>>,
+pub struct ImportRejectionResource {
+    #[serde(rename = "reason", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub reason: Option<Option<String>>,
     #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
-    pub r#type: Option<models::ProviderMessageType>,
+    pub r#type: Option<models::RejectionType>,
 }
 
-impl ProviderMessage {
-    pub fn new() -> ProviderMessage {
-        ProviderMessage {
-            message: None,
+impl ImportRejectionResource {
+    pub fn new() -> ImportRejectionResource {
+        ImportRejectionResource {
+            reason: None,
             r#type: None,
         }
     }
