@@ -154,6 +154,7 @@ pub mod missing_api;
 pub mod movie_api;
 pub mod movie_editor_api;
 pub mod movie_file_api;
+pub mod movie_folder_api;
 pub mod movie_import_api;
 pub mod movie_lookup_api;
 pub mod naming_config_api;

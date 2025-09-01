@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost:7878*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_quality_definition_by_id**](QualityDefinitionApi.md#get_quality_definition_by_id) | **GET** /api/v3/qualitydefinition/{id} | 
+[**get_quality_definition_limits**](QualityDefinitionApi.md#get_quality_definition_limits) | **GET** /api/v3/qualitydefinition/limits | 
 [**list_quality_definition**](QualityDefinitionApi.md#list_quality_definition) | **GET** /api/v3/qualitydefinition | 
 [**put_quality_definition_update**](QualityDefinitionApi.md#put_quality_definition_update) | **PUT** /api/v3/qualitydefinition/update | 
 [**update_quality_definition**](QualityDefinitionApi.md#update_quality_definition) | **PUT** /api/v3/qualitydefinition/{id} | 
@@ -26,6 +27,31 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::QualityDefinitionResource**](QualityDefinitionResource.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_quality_definition_limits
+
+> models::QualityDefinitionLimitsResource get_quality_definition_limits()
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**models::QualityDefinitionLimitsResource**](QualityDefinitionLimitsResource.md)
 
 ### Authorization
 

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**delete_movie_file_bulk**](MovieFileApi.md#delete_movie_file_bulk) | **DELETE** /api/v3/moviefile/bulk | 
 [**get_movie_file_by_id**](MovieFileApi.md#get_movie_file_by_id) | **GET** /api/v3/moviefile/{id} | 
 [**list_movie_file**](MovieFileApi.md#list_movie_file) | **GET** /api/v3/moviefile | 
+[**put_movie_file_bulk**](MovieFileApi.md#put_movie_file_bulk) | **PUT** /api/v3/moviefile/bulk | 
 [**put_movie_file_editor**](MovieFileApi.md#put_movie_file_editor) | **PUT** /api/v3/moviefile/editor | 
 [**update_movie_file**](MovieFileApi.md#update_movie_file) | **PUT** /api/v3/moviefile/{id} | 
 
@@ -122,6 +123,34 @@ Name | Type | Description  | Required | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## put_movie_file_bulk
+
+> put_movie_file_bulk(movie_file_resource)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**movie_file_resource** | Option<[**Vec<models::MovieFileResource>**](MovieFileResource.md)> |  |  |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [X-Api-Key](../README.md#X-Api-Key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
