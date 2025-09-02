@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## get_feed_v3_calendar_radarr_period_ics
 
-> get_feed_v3_calendar_radarr_period_ics(past_days, future_days, tags, unmonitored)
+> get_feed_v3_calendar_radarr_period_ics(past_days, future_days, tags, unmonitored, release_types)
 
 
 ### Parameters
@@ -22,6 +22,7 @@ Name | Type | Description  | Required | Notes
 **future_days** | Option<**i32**> |  |  |[default to 28]
 **tags** | Option<**String**> |  |  |[default to ]
 **unmonitored** | Option<**bool**> |  |  |[default to false]
+**release_types** | Option<[**Vec<models::CalendarReleaseType>**](models::CalendarReleaseType.md)> |  |  |
 
 ### Return type
 
