@@ -32,9 +32,9 @@ pub enum ListAlttitleError {
 
 pub async fn get_alttitle_by_id(configuration: &configuration::Configuration, id: i32) -> Result<models::AlternativeTitleResource, Error<GetAlttitleByIdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_path_id = id;
 
-    let uri_str = format!("{}/api/v3/alttitle/{id}", configuration.base_path, id=p_id);
+    let uri_str = format!("{}/api/v3/alttitle/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref apikey) = configuration.api_key {
@@ -84,16 +84,16 @@ pub async fn get_alttitle_by_id(configuration: &configuration::Configuration, id
 
 pub async fn list_alttitle(configuration: &configuration::Configuration, movie_id: Option<i32>, movie_metadata_id: Option<i32>) -> Result<Vec<models::AlternativeTitleResource>, Error<ListAlttitleError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_movie_id = movie_id;
-    let p_movie_metadata_id = movie_metadata_id;
+    let p_query_movie_id = movie_id;
+    let p_query_movie_metadata_id = movie_metadata_id;
 
     let uri_str = format!("{}/api/v3/alttitle", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_movie_id {
+    if let Some(ref param_value) = p_query_movie_id {
         req_builder = req_builder.query(&[("movieId", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_movie_metadata_id {
+    if let Some(ref param_value) = p_query_movie_metadata_id {
         req_builder = req_builder.query(&[("movieMetadataId", &param_value.to_string())]);
     }
     if let Some(ref apikey) = configuration.api_key {

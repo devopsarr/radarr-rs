@@ -67,9 +67,9 @@ pub enum UpdateMovieFileError {
 
 pub async fn delete_movie_file(configuration: &configuration::Configuration, id: i32) -> Result<(), Error<DeleteMovieFileError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_path_id = id;
 
-    let uri_str = format!("{}/api/v3/moviefile/{id}", configuration.base_path, id=p_id);
+    let uri_str = format!("{}/api/v3/moviefile/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
     if let Some(ref apikey) = configuration.api_key {
@@ -108,7 +108,7 @@ pub async fn delete_movie_file(configuration: &configuration::Configuration, id:
 
 pub async fn delete_movie_file_bulk(configuration: &configuration::Configuration, movie_file_list_resource: Option<models::MovieFileListResource>) -> Result<(), Error<DeleteMovieFileBulkError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_movie_file_list_resource = movie_file_list_resource;
+    let p_body_movie_file_list_resource = movie_file_list_resource;
 
     let uri_str = format!("{}/api/v3/moviefile/bulk", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
@@ -132,7 +132,7 @@ pub async fn delete_movie_file_bulk(configuration: &configuration::Configuration
         };
         req_builder = req_builder.header("X-Api-Key", value);
     };
-    req_builder = req_builder.json(&p_movie_file_list_resource);
+    req_builder = req_builder.json(&p_body_movie_file_list_resource);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -150,9 +150,9 @@ pub async fn delete_movie_file_bulk(configuration: &configuration::Configuration
 
 pub async fn get_movie_file_by_id(configuration: &configuration::Configuration, id: i32) -> Result<models::MovieFileResource, Error<GetMovieFileByIdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_path_id = id;
 
-    let uri_str = format!("{}/api/v3/moviefile/{id}", configuration.base_path, id=p_id);
+    let uri_str = format!("{}/api/v3/moviefile/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref apikey) = configuration.api_key {
@@ -202,19 +202,19 @@ pub async fn get_movie_file_by_id(configuration: &configuration::Configuration, 
 
 pub async fn list_movie_file(configuration: &configuration::Configuration, movie_id: Option<Vec<i32>>, movie_file_ids: Option<Vec<i32>>) -> Result<Vec<models::MovieFileResource>, Error<ListMovieFileError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_movie_id = movie_id;
-    let p_movie_file_ids = movie_file_ids;
+    let p_query_movie_id = movie_id;
+    let p_query_movie_file_ids = movie_file_ids;
 
     let uri_str = format!("{}/api/v3/moviefile", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_movie_id {
+    if let Some(ref param_value) = p_query_movie_id {
         req_builder = match "multi" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("movieId".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("movieId", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref param_value) = p_movie_file_ids {
+    if let Some(ref param_value) = p_query_movie_file_ids {
         req_builder = match "multi" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("movieFileIds".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("movieFileIds", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
@@ -267,7 +267,7 @@ pub async fn list_movie_file(configuration: &configuration::Configuration, movie
 
 pub async fn put_movie_file_bulk(configuration: &configuration::Configuration, movie_file_resource: Option<Vec<models::MovieFileResource>>) -> Result<(), Error<PutMovieFileBulkError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_movie_file_resource = movie_file_resource;
+    let p_body_movie_file_resource = movie_file_resource;
 
     let uri_str = format!("{}/api/v3/moviefile/bulk", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
@@ -291,7 +291,7 @@ pub async fn put_movie_file_bulk(configuration: &configuration::Configuration, m
         };
         req_builder = req_builder.header("X-Api-Key", value);
     };
-    req_builder = req_builder.json(&p_movie_file_resource);
+    req_builder = req_builder.json(&p_body_movie_file_resource);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -309,7 +309,7 @@ pub async fn put_movie_file_bulk(configuration: &configuration::Configuration, m
 
 pub async fn put_movie_file_editor(configuration: &configuration::Configuration, movie_file_list_resource: Option<models::MovieFileListResource>) -> Result<(), Error<PutMovieFileEditorError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_movie_file_list_resource = movie_file_list_resource;
+    let p_body_movie_file_list_resource = movie_file_list_resource;
 
     let uri_str = format!("{}/api/v3/moviefile/editor", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
@@ -333,7 +333,7 @@ pub async fn put_movie_file_editor(configuration: &configuration::Configuration,
         };
         req_builder = req_builder.header("X-Api-Key", value);
     };
-    req_builder = req_builder.json(&p_movie_file_list_resource);
+    req_builder = req_builder.json(&p_body_movie_file_list_resource);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -351,10 +351,10 @@ pub async fn put_movie_file_editor(configuration: &configuration::Configuration,
 
 pub async fn update_movie_file(configuration: &configuration::Configuration, id: &str, movie_file_resource: Option<models::MovieFileResource>) -> Result<models::MovieFileResource, Error<UpdateMovieFileError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_movie_file_resource = movie_file_resource;
+    let p_path_id = id;
+    let p_body_movie_file_resource = movie_file_resource;
 
-    let uri_str = format!("{}/api/v3/moviefile/{id}", configuration.base_path, id=crate::apis::urlencode(p_id));
+    let uri_str = format!("{}/api/v3/moviefile/{id}", configuration.base_path, id=crate::apis::urlencode(p_path_id));
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
     if let Some(ref apikey) = configuration.api_key {
@@ -376,7 +376,7 @@ pub async fn update_movie_file(configuration: &configuration::Configuration, id:
         };
         req_builder = req_builder.header("X-Api-Key", value);
     };
-    req_builder = req_builder.json(&p_movie_file_resource);
+    req_builder = req_builder.json(&p_body_movie_file_resource);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;

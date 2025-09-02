@@ -25,12 +25,12 @@ pub enum ListExtraFileError {
 
 pub async fn list_extra_file(configuration: &configuration::Configuration, movie_id: Option<i32>) -> Result<Vec<models::ExtraFileResource>, Error<ListExtraFileError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_movie_id = movie_id;
+    let p_query_movie_id = movie_id;
 
     let uri_str = format!("{}/api/v3/extrafile", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_movie_id {
+    if let Some(ref param_value) = p_query_movie_id {
         req_builder = req_builder.query(&[("movieId", &param_value.to_string())]);
     }
     if let Some(ref apikey) = configuration.api_key {
