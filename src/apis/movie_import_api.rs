@@ -25,7 +25,7 @@ pub enum CreateMovieImportError {
 
 pub async fn create_movie_import(configuration: &configuration::Configuration, movie_resource: Option<Vec<models::MovieResource>>) -> Result<Vec<models::MovieResource>, Error<CreateMovieImportError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_movie_resource = movie_resource;
+    let p_body_movie_resource = movie_resource;
 
     let uri_str = format!("{}/api/v3/movie/import", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -49,7 +49,7 @@ pub async fn create_movie_import(configuration: &configuration::Configuration, m
         };
         req_builder = req_builder.header("X-Api-Key", value);
     };
-    req_builder = req_builder.json(&p_movie_resource);
+    req_builder = req_builder.json(&p_body_movie_resource);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;

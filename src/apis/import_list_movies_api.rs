@@ -32,7 +32,7 @@ pub enum GetImportlistMovieError {
 
 pub async fn create_importlist_movie(configuration: &configuration::Configuration, movie_resource: Option<Vec<models::MovieResource>>) -> Result<(), Error<CreateImportlistMovieError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_movie_resource = movie_resource;
+    let p_body_movie_resource = movie_resource;
 
     let uri_str = format!("{}/api/v3/importlist/movie", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -56,7 +56,7 @@ pub async fn create_importlist_movie(configuration: &configuration::Configuratio
         };
         req_builder = req_builder.header("X-Api-Key", value);
     };
-    req_builder = req_builder.json(&p_movie_resource);
+    req_builder = req_builder.json(&p_body_movie_resource);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -74,20 +74,20 @@ pub async fn create_importlist_movie(configuration: &configuration::Configuratio
 
 pub async fn get_importlist_movie(configuration: &configuration::Configuration, include_recommendations: Option<bool>, include_trending: Option<bool>, include_popular: Option<bool>) -> Result<(), Error<GetImportlistMovieError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_include_recommendations = include_recommendations;
-    let p_include_trending = include_trending;
-    let p_include_popular = include_popular;
+    let p_query_include_recommendations = include_recommendations;
+    let p_query_include_trending = include_trending;
+    let p_query_include_popular = include_popular;
 
     let uri_str = format!("{}/api/v3/importlist/movie", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_include_recommendations {
+    if let Some(ref param_value) = p_query_include_recommendations {
         req_builder = req_builder.query(&[("includeRecommendations", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_include_trending {
+    if let Some(ref param_value) = p_query_include_trending {
         req_builder = req_builder.query(&[("includeTrending", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_include_popular {
+    if let Some(ref param_value) = p_query_include_popular {
         req_builder = req_builder.query(&[("includePopular", &param_value.to_string())]);
     }
     if let Some(ref apikey) = configuration.api_key {

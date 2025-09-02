@@ -46,9 +46,9 @@ pub enum ListBlocklistMovieError {
 
 pub async fn delete_blocklist(configuration: &configuration::Configuration, id: i32) -> Result<(), Error<DeleteBlocklistError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_path_id = id;
 
-    let uri_str = format!("{}/api/v3/blocklist/{id}", configuration.base_path, id=p_id);
+    let uri_str = format!("{}/api/v3/blocklist/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
     if let Some(ref apikey) = configuration.api_key {
@@ -87,7 +87,7 @@ pub async fn delete_blocklist(configuration: &configuration::Configuration, id: 
 
 pub async fn delete_blocklist_bulk(configuration: &configuration::Configuration, blocklist_bulk_resource: Option<models::BlocklistBulkResource>) -> Result<(), Error<DeleteBlocklistBulkError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_blocklist_bulk_resource = blocklist_bulk_resource;
+    let p_body_blocklist_bulk_resource = blocklist_bulk_resource;
 
     let uri_str = format!("{}/api/v3/blocklist/bulk", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
@@ -111,7 +111,7 @@ pub async fn delete_blocklist_bulk(configuration: &configuration::Configuration,
         };
         req_builder = req_builder.header("X-Api-Key", value);
     };
-    req_builder = req_builder.json(&p_blocklist_bulk_resource);
+    req_builder = req_builder.json(&p_body_blocklist_bulk_resource);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -129,35 +129,35 @@ pub async fn delete_blocklist_bulk(configuration: &configuration::Configuration,
 
 pub async fn get_blocklist(configuration: &configuration::Configuration, page: Option<i32>, page_size: Option<i32>, sort_key: Option<&str>, sort_direction: Option<models::SortDirection>, movie_ids: Option<Vec<i32>>, protocols: Option<Vec<models::DownloadProtocol>>) -> Result<models::BlocklistResourcePagingResource, Error<GetBlocklistError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_page = page;
-    let p_page_size = page_size;
-    let p_sort_key = sort_key;
-    let p_sort_direction = sort_direction;
-    let p_movie_ids = movie_ids;
-    let p_protocols = protocols;
+    let p_query_page = page;
+    let p_query_page_size = page_size;
+    let p_query_sort_key = sort_key;
+    let p_query_sort_direction = sort_direction;
+    let p_query_movie_ids = movie_ids;
+    let p_query_protocols = protocols;
 
     let uri_str = format!("{}/api/v3/blocklist", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_page {
+    if let Some(ref param_value) = p_query_page {
         req_builder = req_builder.query(&[("page", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_page_size {
+    if let Some(ref param_value) = p_query_page_size {
         req_builder = req_builder.query(&[("pageSize", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort_key {
+    if let Some(ref param_value) = p_query_sort_key {
         req_builder = req_builder.query(&[("sortKey", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort_direction {
+    if let Some(ref param_value) = p_query_sort_direction {
         req_builder = req_builder.query(&[("sortDirection", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_movie_ids {
+    if let Some(ref param_value) = p_query_movie_ids {
         req_builder = match "multi" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("movieIds".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("movieIds", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref param_value) = p_protocols {
+    if let Some(ref param_value) = p_query_protocols {
         req_builder = match "multi" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("protocols".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("protocols", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
@@ -210,12 +210,12 @@ pub async fn get_blocklist(configuration: &configuration::Configuration, page: O
 
 pub async fn list_blocklist_movie(configuration: &configuration::Configuration, movie_id: Option<i32>) -> Result<Vec<models::BlocklistResource>, Error<ListBlocklistMovieError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_movie_id = movie_id;
+    let p_query_movie_id = movie_id;
 
     let uri_str = format!("{}/api/v3/blocklist/movie", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_movie_id {
+    if let Some(ref param_value) = p_query_movie_id {
         req_builder = req_builder.query(&[("movieId", &param_value.to_string())]);
     }
     if let Some(ref apikey) = configuration.api_key {

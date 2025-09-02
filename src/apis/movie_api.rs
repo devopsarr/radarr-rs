@@ -53,7 +53,7 @@ pub enum UpdateMovieError {
 
 pub async fn create_movie(configuration: &configuration::Configuration, movie_resource: Option<models::MovieResource>) -> Result<models::MovieResource, Error<CreateMovieError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_movie_resource = movie_resource;
+    let p_body_movie_resource = movie_resource;
 
     let uri_str = format!("{}/api/v3/movie", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -77,7 +77,7 @@ pub async fn create_movie(configuration: &configuration::Configuration, movie_re
         };
         req_builder = req_builder.header("X-Api-Key", value);
     };
-    req_builder = req_builder.json(&p_movie_resource);
+    req_builder = req_builder.json(&p_body_movie_resource);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -106,17 +106,17 @@ pub async fn create_movie(configuration: &configuration::Configuration, movie_re
 
 pub async fn delete_movie(configuration: &configuration::Configuration, id: i32, delete_files: Option<bool>, add_import_exclusion: Option<bool>) -> Result<(), Error<DeleteMovieError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_delete_files = delete_files;
-    let p_add_import_exclusion = add_import_exclusion;
+    let p_path_id = id;
+    let p_query_delete_files = delete_files;
+    let p_query_add_import_exclusion = add_import_exclusion;
 
-    let uri_str = format!("{}/api/v3/movie/{id}", configuration.base_path, id=p_id);
+    let uri_str = format!("{}/api/v3/movie/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
-    if let Some(ref param_value) = p_delete_files {
+    if let Some(ref param_value) = p_query_delete_files {
         req_builder = req_builder.query(&[("deleteFiles", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_add_import_exclusion {
+    if let Some(ref param_value) = p_query_add_import_exclusion {
         req_builder = req_builder.query(&[("addImportExclusion", &param_value.to_string())]);
     }
     if let Some(ref apikey) = configuration.api_key {
@@ -155,9 +155,9 @@ pub async fn delete_movie(configuration: &configuration::Configuration, id: i32,
 
 pub async fn get_movie_by_id(configuration: &configuration::Configuration, id: i32) -> Result<models::MovieResource, Error<GetMovieByIdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_path_id = id;
 
-    let uri_str = format!("{}/api/v3/movie/{id}", configuration.base_path, id=p_id);
+    let uri_str = format!("{}/api/v3/movie/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref apikey) = configuration.api_key {
@@ -207,20 +207,20 @@ pub async fn get_movie_by_id(configuration: &configuration::Configuration, id: i
 
 pub async fn list_movie(configuration: &configuration::Configuration, tmdb_id: Option<i32>, exclude_local_covers: Option<bool>, language_id: Option<i32>) -> Result<Vec<models::MovieResource>, Error<ListMovieError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_tmdb_id = tmdb_id;
-    let p_exclude_local_covers = exclude_local_covers;
-    let p_language_id = language_id;
+    let p_query_tmdb_id = tmdb_id;
+    let p_query_exclude_local_covers = exclude_local_covers;
+    let p_query_language_id = language_id;
 
     let uri_str = format!("{}/api/v3/movie", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_tmdb_id {
+    if let Some(ref param_value) = p_query_tmdb_id {
         req_builder = req_builder.query(&[("tmdbId", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_exclude_local_covers {
+    if let Some(ref param_value) = p_query_exclude_local_covers {
         req_builder = req_builder.query(&[("excludeLocalCovers", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_language_id {
+    if let Some(ref param_value) = p_query_language_id {
         req_builder = req_builder.query(&[("languageId", &param_value.to_string())]);
     }
     if let Some(ref apikey) = configuration.api_key {
@@ -270,14 +270,14 @@ pub async fn list_movie(configuration: &configuration::Configuration, tmdb_id: O
 
 pub async fn update_movie(configuration: &configuration::Configuration, id: &str, move_files: Option<bool>, movie_resource: Option<models::MovieResource>) -> Result<models::MovieResource, Error<UpdateMovieError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_move_files = move_files;
-    let p_movie_resource = movie_resource;
+    let p_path_id = id;
+    let p_query_move_files = move_files;
+    let p_body_movie_resource = movie_resource;
 
-    let uri_str = format!("{}/api/v3/movie/{id}", configuration.base_path, id=crate::apis::urlencode(p_id));
+    let uri_str = format!("{}/api/v3/movie/{id}", configuration.base_path, id=crate::apis::urlencode(p_path_id));
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
-    if let Some(ref param_value) = p_move_files {
+    if let Some(ref param_value) = p_query_move_files {
         req_builder = req_builder.query(&[("moveFiles", &param_value.to_string())]);
     }
     if let Some(ref apikey) = configuration.api_key {
@@ -299,7 +299,7 @@ pub async fn update_movie(configuration: &configuration::Configuration, id: &str
         };
         req_builder = req_builder.header("X-Api-Key", value);
     };
-    req_builder = req_builder.json(&p_movie_resource);
+    req_builder = req_builder.json(&p_body_movie_resource);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;

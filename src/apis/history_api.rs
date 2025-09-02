@@ -46,9 +46,9 @@ pub enum ListHistorySinceError {
 
 pub async fn create_history_failed_by_id(configuration: &configuration::Configuration, id: i32) -> Result<(), Error<CreateHistoryFailedByIdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_path_id = id;
 
-    let uri_str = format!("{}/api/v3/history/failed/{id}", configuration.base_path, id=p_id);
+    let uri_str = format!("{}/api/v3/history/failed/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref apikey) = configuration.api_key {
@@ -87,57 +87,57 @@ pub async fn create_history_failed_by_id(configuration: &configuration::Configur
 
 pub async fn get_history(configuration: &configuration::Configuration, page: Option<i32>, page_size: Option<i32>, sort_key: Option<&str>, sort_direction: Option<models::SortDirection>, include_movie: Option<bool>, event_type: Option<Vec<i32>>, download_id: Option<&str>, movie_ids: Option<Vec<i32>>, languages: Option<Vec<i32>>, quality: Option<Vec<i32>>) -> Result<models::HistoryResourcePagingResource, Error<GetHistoryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_page = page;
-    let p_page_size = page_size;
-    let p_sort_key = sort_key;
-    let p_sort_direction = sort_direction;
-    let p_include_movie = include_movie;
-    let p_event_type = event_type;
-    let p_download_id = download_id;
-    let p_movie_ids = movie_ids;
-    let p_languages = languages;
-    let p_quality = quality;
+    let p_query_page = page;
+    let p_query_page_size = page_size;
+    let p_query_sort_key = sort_key;
+    let p_query_sort_direction = sort_direction;
+    let p_query_include_movie = include_movie;
+    let p_query_event_type = event_type;
+    let p_query_download_id = download_id;
+    let p_query_movie_ids = movie_ids;
+    let p_query_languages = languages;
+    let p_query_quality = quality;
 
     let uri_str = format!("{}/api/v3/history", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_page {
+    if let Some(ref param_value) = p_query_page {
         req_builder = req_builder.query(&[("page", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_page_size {
+    if let Some(ref param_value) = p_query_page_size {
         req_builder = req_builder.query(&[("pageSize", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort_key {
+    if let Some(ref param_value) = p_query_sort_key {
         req_builder = req_builder.query(&[("sortKey", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort_direction {
+    if let Some(ref param_value) = p_query_sort_direction {
         req_builder = req_builder.query(&[("sortDirection", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_include_movie {
+    if let Some(ref param_value) = p_query_include_movie {
         req_builder = req_builder.query(&[("includeMovie", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_event_type {
+    if let Some(ref param_value) = p_query_event_type {
         req_builder = match "multi" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("eventType".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("eventType", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref param_value) = p_download_id {
+    if let Some(ref param_value) = p_query_download_id {
         req_builder = req_builder.query(&[("downloadId", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_movie_ids {
+    if let Some(ref param_value) = p_query_movie_ids {
         req_builder = match "multi" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("movieIds".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("movieIds", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref param_value) = p_languages {
+    if let Some(ref param_value) = p_query_languages {
         req_builder = match "multi" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("languages".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("languages", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref param_value) = p_quality {
+    if let Some(ref param_value) = p_query_quality {
         req_builder = match "multi" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("quality".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("quality", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
@@ -190,20 +190,20 @@ pub async fn get_history(configuration: &configuration::Configuration, page: Opt
 
 pub async fn list_history_movie(configuration: &configuration::Configuration, movie_id: Option<i32>, event_type: Option<models::MovieHistoryEventType>, include_movie: Option<bool>) -> Result<Vec<models::HistoryResource>, Error<ListHistoryMovieError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_movie_id = movie_id;
-    let p_event_type = event_type;
-    let p_include_movie = include_movie;
+    let p_query_movie_id = movie_id;
+    let p_query_event_type = event_type;
+    let p_query_include_movie = include_movie;
 
     let uri_str = format!("{}/api/v3/history/movie", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_movie_id {
+    if let Some(ref param_value) = p_query_movie_id {
         req_builder = req_builder.query(&[("movieId", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_event_type {
+    if let Some(ref param_value) = p_query_event_type {
         req_builder = req_builder.query(&[("eventType", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_include_movie {
+    if let Some(ref param_value) = p_query_include_movie {
         req_builder = req_builder.query(&[("includeMovie", &param_value.to_string())]);
     }
     if let Some(ref apikey) = configuration.api_key {
@@ -253,20 +253,20 @@ pub async fn list_history_movie(configuration: &configuration::Configuration, mo
 
 pub async fn list_history_since(configuration: &configuration::Configuration, date: Option<String>, event_type: Option<models::MovieHistoryEventType>, include_movie: Option<bool>) -> Result<Vec<models::HistoryResource>, Error<ListHistorySinceError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_date = date;
-    let p_event_type = event_type;
-    let p_include_movie = include_movie;
+    let p_query_date = date;
+    let p_query_event_type = event_type;
+    let p_query_include_movie = include_movie;
 
     let uri_str = format!("{}/api/v3/history/since", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_date {
+    if let Some(ref param_value) = p_query_date {
         req_builder = req_builder.query(&[("date", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_event_type {
+    if let Some(ref param_value) = p_query_event_type {
         req_builder = req_builder.query(&[("eventType", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_include_movie {
+    if let Some(ref param_value) = p_query_include_movie {
         req_builder = req_builder.query(&[("includeMovie", &param_value.to_string())]);
     }
     if let Some(ref apikey) = configuration.api_key {

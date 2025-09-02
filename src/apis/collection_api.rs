@@ -46,9 +46,9 @@ pub enum UpdateCollectionError {
 
 pub async fn get_collection_by_id(configuration: &configuration::Configuration, id: i32) -> Result<models::CollectionResource, Error<GetCollectionByIdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_path_id = id;
 
-    let uri_str = format!("{}/api/v3/collection/{id}", configuration.base_path, id=p_id);
+    let uri_str = format!("{}/api/v3/collection/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref apikey) = configuration.api_key {
@@ -98,12 +98,12 @@ pub async fn get_collection_by_id(configuration: &configuration::Configuration, 
 
 pub async fn list_collection(configuration: &configuration::Configuration, tmdb_id: Option<i32>) -> Result<Vec<models::CollectionResource>, Error<ListCollectionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_tmdb_id = tmdb_id;
+    let p_query_tmdb_id = tmdb_id;
 
     let uri_str = format!("{}/api/v3/collection", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_tmdb_id {
+    if let Some(ref param_value) = p_query_tmdb_id {
         req_builder = req_builder.query(&[("tmdbId", &param_value.to_string())]);
     }
     if let Some(ref apikey) = configuration.api_key {
@@ -153,7 +153,7 @@ pub async fn list_collection(configuration: &configuration::Configuration, tmdb_
 
 pub async fn put_collection(configuration: &configuration::Configuration, collection_update_resource: Option<models::CollectionUpdateResource>) -> Result<(), Error<PutCollectionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_collection_update_resource = collection_update_resource;
+    let p_body_collection_update_resource = collection_update_resource;
 
     let uri_str = format!("{}/api/v3/collection", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
@@ -177,7 +177,7 @@ pub async fn put_collection(configuration: &configuration::Configuration, collec
         };
         req_builder = req_builder.header("X-Api-Key", value);
     };
-    req_builder = req_builder.json(&p_collection_update_resource);
+    req_builder = req_builder.json(&p_body_collection_update_resource);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -195,10 +195,10 @@ pub async fn put_collection(configuration: &configuration::Configuration, collec
 
 pub async fn update_collection(configuration: &configuration::Configuration, id: &str, collection_resource: Option<models::CollectionResource>) -> Result<models::CollectionResource, Error<UpdateCollectionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_collection_resource = collection_resource;
+    let p_path_id = id;
+    let p_body_collection_resource = collection_resource;
 
-    let uri_str = format!("{}/api/v3/collection/{id}", configuration.base_path, id=crate::apis::urlencode(p_id));
+    let uri_str = format!("{}/api/v3/collection/{id}", configuration.base_path, id=crate::apis::urlencode(p_path_id));
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
     if let Some(ref apikey) = configuration.api_key {
@@ -220,7 +220,7 @@ pub async fn update_collection(configuration: &configuration::Configuration, id:
         };
         req_builder = req_builder.header("X-Api-Key", value);
     };
-    req_builder = req_builder.json(&p_collection_resource);
+    req_builder = req_builder.json(&p_body_collection_resource);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
