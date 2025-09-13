@@ -1,6 +1,6 @@
 [package]
 name = "radarr"
-version = "0.1.0" # x-release-please-version
+version = "0.1.1" # x-release-please-version
 authors = ["OpenAPI Generator team and contributors"]
 description = "Radarr API docs"
 license = "GPL-3.0"
