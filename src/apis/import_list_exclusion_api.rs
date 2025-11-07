@@ -369,6 +369,7 @@ pub async fn get_exclusions_paged(configuration: &configuration::Configuration, 
     }
 }
 
+#[deprecated]
 pub async fn list_exclusions(configuration: &configuration::Configuration, ) -> Result<Vec<models::ImportListExclusionResource>, Error<ListExclusionsError>> {
 
     let uri_str = format!("{}/api/v3/exclusions", configuration.base_path);

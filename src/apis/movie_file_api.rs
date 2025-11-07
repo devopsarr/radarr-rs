@@ -307,6 +307,7 @@ pub async fn put_movie_file_bulk(configuration: &configuration::Configuration, m
     }
 }
 
+#[deprecated]
 pub async fn put_movie_file_editor(configuration: &configuration::Configuration, movie_file_list_resource: Option<models::MovieFileListResource>) -> Result<(), Error<PutMovieFileEditorError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_movie_file_list_resource = movie_file_list_resource;
