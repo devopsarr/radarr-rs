@@ -111,7 +111,7 @@ pub async fn get_history(configuration: &configuration::Configuration, page: Opt
         req_builder = req_builder.query(&[("sortKey", &param_value.to_string())]);
     }
     if let Some(ref param_value) = p_query_sort_direction {
-        req_builder = req_builder.query(&[("sortDirection", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("sortDirection", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref param_value) = p_query_include_movie {
         req_builder = req_builder.query(&[("includeMovie", &param_value.to_string())]);
@@ -201,7 +201,7 @@ pub async fn list_history_movie(configuration: &configuration::Configuration, mo
         req_builder = req_builder.query(&[("movieId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = p_query_event_type {
-        req_builder = req_builder.query(&[("eventType", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("eventType", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref param_value) = p_query_include_movie {
         req_builder = req_builder.query(&[("includeMovie", &param_value.to_string())]);
@@ -264,7 +264,7 @@ pub async fn list_history_since(configuration: &configuration::Configuration, da
         req_builder = req_builder.query(&[("date", &param_value.to_string())]);
     }
     if let Some(ref param_value) = p_query_event_type {
-        req_builder = req_builder.query(&[("eventType", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("eventType", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref param_value) = p_query_include_movie {
         req_builder = req_builder.query(&[("includeMovie", &param_value.to_string())]);
