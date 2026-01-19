@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**movie_id** | Option<[**Vec<i32>**](i32.md)> |  |  |
+**movie_id** | Option<[**Vec<i32>**](I32.md)> |  |  |
 
 ### Return type
 

@@ -166,7 +166,7 @@ pub async fn get_naming_config_examples(configuration: &configuration::Configura
         req_builder = req_builder.query(&[("replaceIllegalCharacters", &param_value.to_string())]);
     }
     if let Some(ref param_value) = p_query_colon_replacement_format {
-        req_builder = req_builder.query(&[("colonReplacementFormat", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("colonReplacementFormat", &param_value.to_string())]);
     }
     if let Some(ref param_value) = p_query_standard_movie_format {
         req_builder = req_builder.query(&[("standardMovieFormat", &param_value.to_string())]);

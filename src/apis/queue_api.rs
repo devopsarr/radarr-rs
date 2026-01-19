@@ -179,7 +179,7 @@ pub async fn get_queue(configuration: &configuration::Configuration, page: Optio
         req_builder = req_builder.query(&[("sortKey", &param_value.to_string())]);
     }
     if let Some(ref param_value) = p_query_sort_direction {
-        req_builder = req_builder.query(&[("sortDirection", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("sortDirection", &param_value.to_string())]);
     }
     if let Some(ref param_value) = p_query_include_unknown_movie_items {
         req_builder = req_builder.query(&[("includeUnknownMovieItems", &param_value.to_string())]);
@@ -194,7 +194,7 @@ pub async fn get_queue(configuration: &configuration::Configuration, page: Optio
         };
     }
     if let Some(ref param_value) = p_query_protocol {
-        req_builder = req_builder.query(&[("protocol", &serde_json::to_string(param_value)?)]);
+        req_builder = req_builder.query(&[("protocol", &param_value.to_string())]);
     }
     if let Some(ref param_value) = p_query_languages {
         req_builder = match "multi" {

@@ -43,7 +43,7 @@ Name | Type | Description | Notes
 **seeders** | Option<**i32**> |  | [optional]
 **leechers** | Option<**i32**> |  | [optional]
 **protocol** | Option<[**models::DownloadProtocol**](DownloadProtocol.md)> |  | [optional]
-**indexer_flags** | Option<[**serde_json::Value**](.md)> |  | [optional]
+**indexer_flags** | Option<**serde_json::Value**> |  | [optional]
 **movie_id** | Option<**i32**> |  | [optional]
 **download_client_id** | Option<**i32**> |  | [optional]
 **download_client** | Option<**String**> |  | [optional]

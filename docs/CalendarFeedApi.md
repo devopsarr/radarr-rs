@@ -22,7 +22,7 @@ Name | Type | Description  | Required | Notes
 **future_days** | Option<**i32**> |  |  |[default to 28]
 **tags** | Option<**String**> |  |  |[default to ]
 **unmonitored** | Option<**bool**> |  |  |[default to false]
-**release_types** | Option<[**Vec<models::CalendarReleaseType>**](models::CalendarReleaseType.md)> |  |  |
+**release_types** | Option<[**Vec<models::CalendarReleaseType>**](Models__CalendarReleaseType.md)> |  |  |
 
 ### Return type
 
