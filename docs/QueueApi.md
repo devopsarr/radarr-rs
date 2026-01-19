@@ -87,14 +87,14 @@ Name | Type | Description  | Required | Notes
 **page** | Option<**i32**> |  |  |[default to 1]
 **page_size** | Option<**i32**> |  |  |[default to 10]
 **sort_key** | Option<**String**> |  |  |
-**sort_direction** | Option<[**SortDirection**](.md)> |  |  |
+**sort_direction** | Option<[**SortDirection**](SortDirection.md)> |  |  |
 **include_unknown_movie_items** | Option<**bool**> |  |  |[default to false]
 **include_movie** | Option<**bool**> |  |  |[default to false]
-**movie_ids** | Option<[**Vec<i32>**](i32.md)> |  |  |
-**protocol** | Option<[**DownloadProtocol**](.md)> |  |  |
-**languages** | Option<[**Vec<i32>**](i32.md)> |  |  |
-**quality** | Option<[**Vec<i32>**](i32.md)> |  |  |
-**status** | Option<[**Vec<models::QueueStatus>**](models::QueueStatus.md)> |  |  |
+**movie_ids** | Option<[**Vec<i32>**](I32.md)> |  |  |
+**protocol** | Option<[**DownloadProtocol**](DownloadProtocol.md)> |  |  |
+**languages** | Option<[**Vec<i32>**](I32.md)> |  |  |
+**quality** | Option<[**Vec<i32>**](I32.md)> |  |  |
+**status** | Option<[**Vec<models::QueueStatus>**](Models__QueueStatus.md)> |  |  |
 
 ### Return type
 

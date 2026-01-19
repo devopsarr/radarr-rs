@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **minimum_availability** | Option<[**models::MovieStatusType**](MovieStatusType.md)> |  | [optional]
 **movies** | Option<[**Vec<models::CollectionMovieResource>**](CollectionMovieResource.md)> |  | [optional]
 **missing_movies** | Option<**i32**> |  | [optional]
-**tags** | Option<**Vec<i32>**> |  | [optional]
+**tags** | Option<**HashSet<i32>**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

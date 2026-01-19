@@ -52,13 +52,13 @@ Name | Type | Description  | Required | Notes
 **page** | Option<**i32**> |  |  |[default to 1]
 **page_size** | Option<**i32**> |  |  |[default to 10]
 **sort_key** | Option<**String**> |  |  |
-**sort_direction** | Option<[**SortDirection**](.md)> |  |  |
+**sort_direction** | Option<[**SortDirection**](SortDirection.md)> |  |  |
 **include_movie** | Option<**bool**> |  |  |
-**event_type** | Option<[**Vec<i32>**](i32.md)> |  |  |
+**event_type** | Option<[**Vec<i32>**](I32.md)> |  |  |
 **download_id** | Option<**String**> |  |  |
-**movie_ids** | Option<[**Vec<i32>**](i32.md)> |  |  |
-**languages** | Option<[**Vec<i32>**](i32.md)> |  |  |
-**quality** | Option<[**Vec<i32>**](i32.md)> |  |  |
+**movie_ids** | Option<[**Vec<i32>**](I32.md)> |  |  |
+**languages** | Option<[**Vec<i32>**](I32.md)> |  |  |
+**quality** | Option<[**Vec<i32>**](I32.md)> |  |  |
 
 ### Return type
 
@@ -87,7 +87,7 @@ Name | Type | Description  | Required | Notes
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **movie_id** | Option<**i32**> |  |  |
-**event_type** | Option<[**MovieHistoryEventType**](.md)> |  |  |
+**event_type** | Option<[**MovieHistoryEventType**](MovieHistoryEventType.md)> |  |  |
 **include_movie** | Option<**bool**> |  |  |[default to false]
 
 ### Return type
@@ -117,7 +117,7 @@ Name | Type | Description  | Required | Notes
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **date** | Option<**String**> |  |  |
-**event_type** | Option<[**MovieHistoryEventType**](.md)> |  |  |
+**event_type** | Option<[**MovieHistoryEventType**](MovieHistoryEventType.md)> |  |  |
 **include_movie** | Option<**bool**> |  |  |[default to false]
 
 ### Return type

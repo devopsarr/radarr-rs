@@ -76,7 +76,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **rename_movies** | Option<**bool**> |  |  |
 **replace_illegal_characters** | Option<**bool**> |  |  |
-**colon_replacement_format** | Option<[**ColonReplacementFormat**](.md)> |  |  |
+**colon_replacement_format** | Option<[**ColonReplacementFormat**](ColonReplacementFormat.md)> |  |  |
 **standard_movie_format** | Option<**String**> |  |  |
 **movie_folder_format** | Option<**String**> |  |  |
 **id** | Option<**i32**> |  |  |
