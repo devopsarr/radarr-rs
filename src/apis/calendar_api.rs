@@ -23,7 +23,7 @@ pub enum ListCalendarError {
 }
 
 
-pub async fn list_calendar(configuration: &configuration::Configuration, start: Option<String>, end: Option<String>, unmonitored: Option<bool>, tags: Option<&str>) -> Result<Vec<models::MovieResource>, Error<ListCalendarError>> {
+pub async fn list_calendar(configuration: &configuration::Configuration, start: Option<chrono::DateTime<chrono::FixedOffset>>, end: Option<chrono::DateTime<chrono::FixedOffset>>, unmonitored: Option<bool>, tags: Option<&str>) -> Result<Vec<models::MovieResource>, Error<ListCalendarError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_start = start;
     let p_query_end = end;
