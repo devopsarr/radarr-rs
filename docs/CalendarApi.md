@@ -18,8 +18,8 @@ Method | HTTP request | Description
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**start** | Option<**String**> |  |  |
-**end** | Option<**String**> |  |  |
+**start** | Option<**chrono::DateTime<chrono::FixedOffset>**> |  |  |
+**end** | Option<**chrono::DateTime<chrono::FixedOffset>**> |  |  |
 **unmonitored** | Option<**bool**> |  |  |[default to false]
 **tags** | Option<**String**> |  |  |[default to ]
 

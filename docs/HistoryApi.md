@@ -116,7 +116,7 @@ Name | Type | Description  | Required | Notes
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**date** | Option<**String**> |  |  |
+**date** | Option<**chrono::DateTime<chrono::FixedOffset>**> |  |  |
 **event_type** | Option<[**MovieHistoryEventType**](MovieHistoryEventType.md)> |  |  |
 **include_movie** | Option<**bool**> |  |  |[default to false]
 
