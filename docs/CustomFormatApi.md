@@ -38,7 +38,7 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -73,7 +73,7 @@ Name | Type | Description  | Required | Notes
 
 ## delete_custom_format_bulk
 
-> delete_custom_format_bulk(custom_format_bulk_resource)
+> serde_json::Value delete_custom_format_bulk(custom_format_bulk_resource)
 
 
 ### Parameters
@@ -85,7 +85,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
- (empty response body)
+[**serde_json::Value**](serde_json::Value.md)
 
 ### Authorization
 
@@ -94,7 +94,7 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -122,7 +122,7 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -179,7 +179,7 @@ This endpoint does not need any parameter.
 
 ## put_custom_format_bulk
 
-> models::CustomFormatResource put_custom_format_bulk(custom_format_bulk_resource)
+> Vec<models::CustomFormatResource> put_custom_format_bulk(custom_format_bulk_resource)
 
 
 ### Parameters
@@ -191,7 +191,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::CustomFormatResource**](CustomFormatResource.md)
+[**Vec<models::CustomFormatResource>**](CustomFormatResource.md)
 
 ### Authorization
 
@@ -229,7 +229,7 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

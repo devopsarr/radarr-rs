@@ -41,7 +41,7 @@ Name | Type | Description  | Required | Notes
 
 ## delete_blocklist_bulk
 
-> delete_blocklist_bulk(blocklist_bulk_resource)
+> serde_json::Value delete_blocklist_bulk(blocklist_bulk_resource)
 
 
 ### Parameters
@@ -53,7 +53,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
- (empty response body)
+[**serde_json::Value**](serde_json::Value.md)
 
 ### Authorization
 
@@ -61,8 +61,8 @@ Name | Type | Description  | Required | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, text/json, application/*+json
-- **Accept**: Not defined
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -123,7 +123,7 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
