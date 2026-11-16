@@ -44,7 +44,7 @@ Name | Type | Description  | Required | Notes
 
 ## delete_movie_file_bulk
 
-> serde_json::Value delete_movie_file_bulk(movie_file_list_resource)
+> delete_movie_file_bulk(movie_file_list_resource)
 
 
 ### Parameters
@@ -56,7 +56,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**serde_json::Value**](serde_json::Value.md)
+ (empty response body)
 
 ### Authorization
 
@@ -65,7 +65,7 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -93,7 +93,7 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -129,7 +129,7 @@ Name | Type | Description  | Required | Notes
 
 ## put_movie_file_bulk
 
-> Vec<models::MovieFileResource> put_movie_file_bulk(movie_file_resource)
+> put_movie_file_bulk(movie_file_resource)
 
 
 ### Parameters
@@ -141,7 +141,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<models::MovieFileResource>**](MovieFileResource.md)
+ (empty response body)
 
 ### Authorization
 
@@ -150,14 +150,14 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## put_movie_file_editor
 
-> Vec<models::MovieFileResource> put_movie_file_editor(movie_file_list_resource)
+> put_movie_file_editor(movie_file_list_resource)
 
 
 ### Parameters
@@ -169,7 +169,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<models::MovieFileResource>**](MovieFileResource.md)
+ (empty response body)
 
 ### Authorization
 
@@ -178,7 +178,7 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -207,7 +207,7 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

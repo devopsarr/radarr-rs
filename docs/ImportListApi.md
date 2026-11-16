@@ -78,7 +78,7 @@ Name | Type | Description  | Required | Notes
 
 ## delete_import_list
 
-> serde_json::Value delete_import_list(id)
+> delete_import_list(id)
 
 
 ### Parameters
@@ -90,7 +90,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**serde_json::Value**](serde_json::Value.md)
+ (empty response body)
 
 ### Authorization
 
@@ -99,14 +99,14 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## delete_import_list_bulk
 
-> serde_json::Value delete_import_list_bulk(import_list_bulk_resource)
+> delete_import_list_bulk(import_list_bulk_resource)
 
 
 ### Parameters
@@ -118,7 +118,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**serde_json::Value**](serde_json::Value.md)
+ (empty response body)
 
 ### Authorization
 
@@ -127,7 +127,7 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -155,7 +155,7 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -212,7 +212,7 @@ This endpoint does not need any parameter.
 
 ## put_import_list_bulk
 
-> Vec<models::ImportListResource> put_import_list_bulk(import_list_bulk_resource)
+> models::ImportListResource put_import_list_bulk(import_list_bulk_resource)
 
 
 ### Parameters
@@ -224,7 +224,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<models::ImportListResource>**](ImportListResource.md)
+[**models::ImportListResource**](ImportListResource.md)
 
 ### Authorization
 
@@ -269,7 +269,7 @@ Name | Type | Description  | Required | Notes
 
 ## testall_import_list
 
-> Vec<models::ProviderTestAllResult> testall_import_list()
+> testall_import_list()
 
 
 ### Parameters
@@ -278,7 +278,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Vec<models::ProviderTestAllResult>**](ProviderTestAllResult.md)
+ (empty response body)
 
 ### Authorization
 
@@ -287,7 +287,7 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

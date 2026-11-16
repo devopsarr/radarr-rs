@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## delete_movie_editor
 
-> serde_json::Value delete_movie_editor(movie_editor_resource)
+> delete_movie_editor(movie_editor_resource)
 
 
 ### Parameters
@@ -23,7 +23,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**serde_json::Value**](serde_json::Value.md)
+ (empty response body)
 
 ### Authorization
 
@@ -31,15 +31,15 @@ Name | Type | Description  | Required | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: application/json, text/json, application/*+json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## put_movie_editor
 
-> Vec<models::MovieResource> put_movie_editor(movie_editor_resource)
+> put_movie_editor(movie_editor_resource)
 
 
 ### Parameters
@@ -51,7 +51,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<models::MovieResource>**](MovieResource.md)
+ (empty response body)
 
 ### Authorization
 
@@ -59,8 +59,8 @@ Name | Type | Description  | Required | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: application/json, text/json, application/*+json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

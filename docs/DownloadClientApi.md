@@ -78,7 +78,7 @@ Name | Type | Description  | Required | Notes
 
 ## delete_download_client
 
-> serde_json::Value delete_download_client(id)
+> delete_download_client(id)
 
 
 ### Parameters
@@ -90,7 +90,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**serde_json::Value**](serde_json::Value.md)
+ (empty response body)
 
 ### Authorization
 
@@ -99,14 +99,14 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## delete_download_client_bulk
 
-> serde_json::Value delete_download_client_bulk(download_client_bulk_resource)
+> delete_download_client_bulk(download_client_bulk_resource)
 
 
 ### Parameters
@@ -118,7 +118,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**serde_json::Value**](serde_json::Value.md)
+ (empty response body)
 
 ### Authorization
 
@@ -127,7 +127,7 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -155,7 +155,7 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -212,7 +212,7 @@ This endpoint does not need any parameter.
 
 ## put_download_client_bulk
 
-> Vec<models::DownloadClientResource> put_download_client_bulk(download_client_bulk_resource)
+> models::DownloadClientResource put_download_client_bulk(download_client_bulk_resource)
 
 
 ### Parameters
@@ -224,7 +224,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<models::DownloadClientResource>**](DownloadClientResource.md)
+[**models::DownloadClientResource**](DownloadClientResource.md)
 
 ### Authorization
 
@@ -269,7 +269,7 @@ Name | Type | Description  | Required | Notes
 
 ## testall_download_client
 
-> Vec<models::ProviderTestAllResult> testall_download_client()
+> testall_download_client()
 
 
 ### Parameters
@@ -278,7 +278,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Vec<models::ProviderTestAllResult>**](ProviderTestAllResult.md)
+ (empty response body)
 
 ### Authorization
 
@@ -287,7 +287,7 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

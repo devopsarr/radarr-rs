@@ -21,7 +21,6 @@ Name | Type | Description | Notes
 **is_osx** | Option<**bool**> |  | [optional]
 **is_windows** | Option<**bool**> |  | [optional]
 **is_docker** | Option<**bool**> |  | [optional]
-**is_containerized** | Option<**bool**> |  | [optional]
 **mode** | Option<[**models::RuntimeMode**](RuntimeMode.md)> |  | [optional]
 **branch** | Option<**String**> |  | [optional]
 **database_type** | Option<[**models::DatabaseType**](DatabaseType.md)> |  | [optional]
