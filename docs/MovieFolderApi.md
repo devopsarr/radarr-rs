@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## get_movie_folder
 
-> models::MovieFolderResource get_movie_folder(id)
+> get_movie_folder(id)
 
 
 ### Parameters
@@ -22,7 +22,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::MovieFolderResource**](MovieFolderResource.md)
+ (empty response body)
 
 ### Authorization
 
@@ -31,7 +31,7 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

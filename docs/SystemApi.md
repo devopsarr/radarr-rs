@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## create_system_restart
 
-> models::SystemRestartResource create_system_restart()
+> create_system_restart()
 
 
 ### Parameters
@@ -23,7 +23,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**models::SystemRestartResource**](SystemRestartResource.md)
+ (empty response body)
 
 ### Authorization
 
@@ -32,14 +32,14 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## create_system_shutdown
 
-> models::SystemShutdownResource create_system_shutdown()
+> create_system_shutdown()
 
 
 ### Parameters
@@ -48,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**models::SystemShutdownResource**](SystemShutdownResource.md)
+ (empty response body)
 
 ### Authorization
 
@@ -57,14 +57,14 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## get_system_routes
 
-> String get_system_routes()
+> get_system_routes()
 
 
 ### Parameters
@@ -73,7 +73,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**String**
+ (empty response body)
 
 ### Authorization
 
@@ -82,14 +82,14 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## get_system_routes_duplicate
 
-> std::collections::HashMap<String, Vec<String>> get_system_routes_duplicate()
+> get_system_routes_duplicate()
 
 
 ### Parameters
@@ -98,7 +98,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**std::collections::HashMap<String, Vec<String>>**](Vec.md)
+ (empty response body)
 
 ### Authorization
 
@@ -107,7 +107,7 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -132,7 +132,7 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
