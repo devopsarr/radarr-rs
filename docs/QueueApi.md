@@ -44,7 +44,7 @@ Name | Type | Description  | Required | Notes
 
 ## delete_queue_bulk
 
-> delete_queue_bulk(remove_from_client, blocklist, skip_redownload, change_category, queue_bulk_resource)
+> serde_json::Value delete_queue_bulk(remove_from_client, blocklist, skip_redownload, change_category, queue_bulk_resource)
 
 
 ### Parameters
@@ -60,7 +60,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
- (empty response body)
+[**serde_json::Value**](serde_json::Value.md)
 
 ### Authorization
 
@@ -68,8 +68,8 @@ Name | Type | Description  | Required | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, text/json, application/*+json
-- **Accept**: Not defined
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

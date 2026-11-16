@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## create_release
 
-> create_release(release_resource)
+> models::ReleaseResource create_release(release_resource)
 
 
 ### Parameters
@@ -23,7 +23,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
- (empty response body)
+[**models::ReleaseResource**](ReleaseResource.md)
 
 ### Authorization
 
@@ -32,7 +32,7 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

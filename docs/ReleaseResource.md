@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **quality** | Option<[**models::QualityModel**](QualityModel.md)> |  | [optional]
 **custom_formats** | Option<[**Vec<models::CustomFormatResource>**](CustomFormatResource.md)> |  | [optional]
 **custom_format_score** | Option<**i32**> |  | [optional]
+**history** | Option<[**models::ReleaseHistoryResource**](ReleaseHistoryResource.md)> |  | [optional]
 **quality_weight** | Option<**i32**> |  | [optional]
 **age** | Option<**i32**> |  | [optional]
 **age_hours** | Option<**f64**> |  | [optional]
