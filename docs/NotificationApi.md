@@ -76,7 +76,7 @@ Name | Type | Description  | Required | Notes
 
 ## delete_notification
 
-> delete_notification(id)
+> serde_json::Value delete_notification(id)
 
 
 ### Parameters
@@ -88,7 +88,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
- (empty response body)
+[**serde_json::Value**](serde_json::Value.md)
 
 ### Authorization
 
@@ -97,7 +97,7 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -125,7 +125,7 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -211,7 +211,7 @@ Name | Type | Description  | Required | Notes
 
 ## testall_notification
 
-> testall_notification()
+> Vec<models::ProviderTestAllResult> testall_notification()
 
 
 ### Parameters
@@ -220,7 +220,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
- (empty response body)
+[**Vec<models::ProviderTestAllResult>**](ProviderTestAllResult.md)
 
 ### Authorization
 
@@ -229,7 +229,7 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
